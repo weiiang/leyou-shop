@@ -10,6 +10,7 @@
         <module>ly-item</module>
         <module>ly-common</module>
         <module>ly-gateway</module>
+        <module>ly-registry</module>
     </modules>
     <packaging>pom</packaging>
 
