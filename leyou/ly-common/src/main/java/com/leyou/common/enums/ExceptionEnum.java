@@ -8,7 +8,10 @@ public enum ExceptionEnum {
     //商品分类
     NOT_FOUNT_ITEM_CATEGORY(404, "没找到商品分类"),
     BADREQUEST_CATEGORY_NAME_CANNOT_BE_NULL(400,"分类名称不能为空!"),
-    BADREQUEST_CATEGORY_NAME_EXIST(400, "该分类已存在!");
+    BADREQUEST_CATEGORY_NAME_EXIST(400, "该分类已存在!"),
+
+    //商品品牌
+    BADREQUEST_ITEM_BRAND_NAME_CANNOT_BE_NULL(400, "商品名称不能为空")
     ;
     /**
      * 状态码

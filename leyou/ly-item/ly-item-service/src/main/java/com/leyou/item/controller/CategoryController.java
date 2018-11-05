@@ -36,6 +36,13 @@ public class CategoryController {
                         .successWithData(categoryService.getCategoryListByPid(pid), HttpStatus.OK));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseResult> getCategoryListById(@PathVariable("id")Long id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(ResponseResult
+                        .successWithData(categoryService.getCategoryListById(id), HttpStatus.OK));
+    }
+
     @PostMapping
     public ResponseEntity<ResponseResult> insertCategory(@RequestBody Category category) {
         logger.info("insert category:{}", category.toString());

@@ -2,11 +2,14 @@ package com.leyou.item.service;
 
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exceptions.CustomGlobalRuntimeException;
+import com.leyou.item.mapper.BrandMapper;
 import com.leyou.item.mapper.CategotyMapper;
 import com.leyou.pojo.Category;
+import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -20,6 +23,9 @@ import java.util.List;
 
 @Service
 public class CategoryService {
+
+    @Autowired
+    private BrandMapper brandMapper;
 
     @Autowired
     private CategotyMapper categotyMapper;
@@ -105,5 +111,17 @@ public class CategoryService {
             flag = true;
         }
         return flag;
+    }
+
+    /**
+     * 查询商品品牌分类信息
+     * @param id
+     * @return
+     */
+    public Object getCategoryListById(Long id) {
+        List<Long> cids = brandMapper.selectCidByBrandId(id);
+
+        List<Category> categories = categotyMapper.selectByIdList(cids);
+        return categories;
     }
 }
