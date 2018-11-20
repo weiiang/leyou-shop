@@ -1,14 +1,13 @@
-package com.leyou;
+package com.leyou.common;
 
 /**
- * @ClassName LyItemInterface
+ * @ClassName CommonApplication
  * @Description TODO
  * @Author wq
- * @Date 2018/10/30 10:14
+ * @Date 2018/11/6 15:50
  * @Version 1.0.0
  */
-public class LyItemInterface {
-
+public class CommonApplication {
     public static void main(String[] args) {
 
     }

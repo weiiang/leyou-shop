@@ -1,15 +1,14 @@
-package com.leyou.common.advice;
+package com.leyou.upload.controller;
 
 import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @ClassName HandlerExceptionController
- * @Description 全局异常处理
+ * @Description TODO
  * @Author wq
  * @Date 2018/10/30 10:55
  * @Version 1.0.0

@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>jar</packaging>
     <groupId>com.leyou.common</groupId>
     <artifactId>ly-common</artifactId>
     <dependencies>

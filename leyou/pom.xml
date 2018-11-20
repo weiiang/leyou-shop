@@ -11,6 +11,7 @@
         <module>ly-common</module>
         <module>ly-gateway</module>
         <module>ly-registry</module>
+        <module>ly-upload</module>
     </modules>
     <packaging>pom</packaging>
 
