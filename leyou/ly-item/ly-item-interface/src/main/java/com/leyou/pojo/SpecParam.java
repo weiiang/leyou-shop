@@ -12,8 +12,10 @@ public class SpecParam implements Serializable{
     private Long groupId;
     private Long cid;
     private String name;
-    @Column(name = " 'numeric' ")
+
+    @Column(name = "`numeric`")
     private Boolean numeric;
+
     private String unit;
     private Boolean generic;
     private Boolean searching;
