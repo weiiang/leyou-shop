@@ -2,13 +2,13 @@ package com.leyou.item.controller;
 
 import com.leyou.common.vo.ResponseResult;
 import com.leyou.item.service.SpecParamService;
+import com.leyou.pojo.SpecParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("/spec-param")
 @RestController
@@ -22,4 +22,24 @@ public class SpecParamController {
         return ResponseEntity.status(200).body(ResponseResult
                 .successWithData(specParamService.getSpecParamListByGroupId(groupId), HttpStatus.OK));
     }
+
+    @PostMapping
+    public ResponseEntity<ResponseResult> addBatch(@RequestBody List<SpecParam> specParamsList){
+        return ResponseEntity.status(200).body(ResponseResult
+                .successWithData(specParamService.addBatch(specParamsList), HttpStatus.OK));
+    }
+
+
+    @DeleteMapping
+    public ResponseEntity<ResponseResult> deleteBatch(@RequestParam("ids[]")List<Long> ids){
+        return ResponseEntity.status(200).body(ResponseResult
+                .successWithData(specParamService.deleteBatch(ids), HttpStatus.OK));
+    }
+
+    @PutMapping
+    public ResponseEntity<ResponseResult> updateBatch(@RequestBody List<SpecParam> specParamList){
+        return ResponseEntity.status(200).body(ResponseResult
+                .successWithData(specParamService.updateBatch(specParamList), HttpStatus.OK));
+    }
 }
+
