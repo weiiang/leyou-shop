@@ -1,2 +1,9 @@
-server:
-  port: 
+spring:
+  application:
+    name: upload-service
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888
+

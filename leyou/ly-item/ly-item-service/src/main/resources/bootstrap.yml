@@ -1,2 +1,8 @@
-server:
-  port: 
+spring:
+  application:
+    name: item-service
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888

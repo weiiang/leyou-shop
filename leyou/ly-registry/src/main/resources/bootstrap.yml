@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ly-registry
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888
+
+
+
+
+

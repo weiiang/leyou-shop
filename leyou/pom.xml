@@ -12,6 +12,7 @@
         <module>ly-gateway</module>
         <module>ly-registry</module>
         <module>ly-upload</module>
+        <module>ly-config-center</module>
     </modules>
     <packaging>pom</packaging>
 

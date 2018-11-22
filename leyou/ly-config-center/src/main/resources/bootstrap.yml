@@ -1,0 +1,15 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: ly-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/weiiang/leyou-shop.git
+          search-paths: config-repository/dev
+      #          username: weiiang
+      #          password: wei19941112
+      label: master
+
