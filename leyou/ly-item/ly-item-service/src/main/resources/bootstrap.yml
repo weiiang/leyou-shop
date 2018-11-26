@@ -1,6 +1,13 @@
 spring:
   application:
     name: item-service
+  datasource:
+    url: jdbc:mysql://119.23.220.195:3306/ly
+    username: root
+    password: Wei@19941112
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
   cloud:
     config:
       label: master
