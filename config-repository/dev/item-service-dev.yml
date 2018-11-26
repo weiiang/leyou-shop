@@ -3,13 +3,13 @@ server:
 spring:
   application:
     name: item-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/ly
-    username: root
-    password: root
-    hikari:
-      maximum-pool-size: 30
-      minimum-idle: 10
+#   datasource:
+#     url: jdbc:mysql://localhost:3306/ly
+#     username: root
+#     password: root
+#     hikari:
+#       maximum-pool-size: 30
+#       minimum-idle: 10
 eureka:
   client:
     service-url:
