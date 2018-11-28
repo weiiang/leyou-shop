@@ -28,6 +28,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.leyou.common</groupId>
             <artifactId>ly-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
