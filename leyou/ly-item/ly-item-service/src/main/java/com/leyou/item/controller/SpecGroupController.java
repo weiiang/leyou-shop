@@ -5,6 +5,7 @@ import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
 import com.leyou.item.service.SpecGroupService;
 import com.leyou.pojo.SpecGroup;
+import com.leyou.pojo.SpecParam;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,12 +39,12 @@ public class SpecGroupController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseResult> updateSpecGroup(SpecGroup specGroup){
+    public ResponseEntity<ResponseResult> updateSpecGroup(SpecGroup specGroup, @RequestBody List<SpecParam> specParamList){
         if (StringUtils.isEmpty(specGroup.getName())){
             throw new CustomGlobalRuntimeException(ExceptionEnum.BADREQUEST_SPEC_GROUP_NAME_CANNOT_BE_NULL);
         }
         return ResponseEntity.status(HttpStatus.OK).body(ResponseResult
-                .successWithData(specGroupService.updateSpecGroup(specGroup), HttpStatus.OK));
+                .successWithData(specGroupService.updateSpecGroup(specGroup, specParamList), HttpStatus.OK));
     }
 
     @DeleteMapping
