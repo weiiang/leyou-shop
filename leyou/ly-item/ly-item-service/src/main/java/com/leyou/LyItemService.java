@@ -1,5 +1,6 @@
 package com.leyou;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,6 +16,8 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableDiscoveryClient
 public class LyItemService {
     public static void main(String[] args) {
-        SpringApplication.run(LyItemService.class);
+        SpringApplication app = new SpringApplication(LyItemService.class);
+        app.setBannerMode(Banner.Mode.OFF);
+        app.run(args);
     }
 }

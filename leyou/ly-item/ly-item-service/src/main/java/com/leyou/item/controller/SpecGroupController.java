@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api
+@Api(value="规格参数组控制器",tags={"规格参数组相关接口"})
 @RequestMapping("/spec-group")
 @RestController
 public class SpecGroupController {

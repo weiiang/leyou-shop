@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @ClassName ItemController
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2018/10/30 10:32
  * @Version 1.0.0
  */
-
+@ApiIgnore
 @RestController
 @RequestMapping("/item")
 public class ItemController {

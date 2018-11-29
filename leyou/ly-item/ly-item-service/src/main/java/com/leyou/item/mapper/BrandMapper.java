@@ -39,4 +39,14 @@ public interface BrandMapper extends Mapper<Brand> {
     @Select("select category_id from tb_category_brand where brand_id = #{bid}")
     List<Long> selectCidByBrandId(@Param("bid")Long bid);
 
+
+    /**
+     * 根据分类ID
+     * 通过分类和品牌的关联表查询该分类品牌列表
+     * @param cid
+     * @return
+     */
+    @Select("select a.* from tb_brand a inner join tb_category_brand b on b.brand_id = a.id where b.category_id = #{cid}")
+    List<Brand> getBrandByCid(@Param("cid")Long cid);
+
 }

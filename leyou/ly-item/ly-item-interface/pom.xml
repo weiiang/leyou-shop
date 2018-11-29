@@ -14,6 +14,12 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.28</version>
+        </dependency>
         <dependency>
             <groupId>com.leyou.common</groupId>
             <artifactId>ly-common</artifactId>

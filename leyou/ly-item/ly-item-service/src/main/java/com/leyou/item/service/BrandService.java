@@ -96,4 +96,8 @@ public class BrandService {
         returnMap.put("cids", cids);
         return returnMap;
     }
+
+    public Object getBrandListByCategoryId(Long cid) {
+        return brandMapper.getBrandByCid(cid);
+    }
 }

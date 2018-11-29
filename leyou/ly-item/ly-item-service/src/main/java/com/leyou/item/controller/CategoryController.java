@@ -5,6 +5,7 @@ import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
 import com.leyou.item.service.CategoryService;
 import com.leyou.pojo.Category;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2018/10/31 9:20
  * @Version 1.0.0
  */
+@Api(value="商品分类控制器",tags={"商品分类相关接口"})
 @RestController
 @RequestMapping("/category")
 public class CategoryController {

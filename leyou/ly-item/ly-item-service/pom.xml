@@ -79,6 +79,11 @@
             <version>${swagger2.version}</version>
         </dependency>
         <!-- API文档 -->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -5,6 +5,9 @@ import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
 import com.leyou.item.service.BrandService;
 import com.leyou.pojo.Brand;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,7 @@ import java.util.List;
  * @Date 2018/11/1 17:23
  * @Version 1.0.0
  */
+@Api(value="品牌控制器",tags={"品牌相关接口"})
 @RestController
 @RequestMapping("/brand")
 public class BrandController {
@@ -40,6 +44,7 @@ public class BrandController {
      * @param page  当前页数
      * @return
      */
+    @ApiOperation(value = "品牌分页列表")
     @GetMapping("/page")
     public ResponseEntity<ResponseResult> getPageList(@RequestParam(value = "rows", defaultValue = "5") int rows,
                                                       @RequestParam(value = "sortBy", required = false) String sortBy,
@@ -52,6 +57,7 @@ public class BrandController {
 
     }
 
+    @ApiOperation(value = "品牌新增")
     @PostMapping
     public ResponseEntity<ResponseResult> insertCategory(Brand brand,@RequestParam("cids") List<Long> cids) {
         logger.info("insert brand:{}", brand.toString());
@@ -61,6 +67,7 @@ public class BrandController {
                         .successWithData(brandService.insertBrand(brand, cids), HttpStatus.CREATED));
     }
 
+    @ApiOperation(value = "品牌修改")
     @PutMapping
     public ResponseEntity<ResponseResult> updateCategory(Brand brand, @RequestParam("cids")List<Long> cids) {
         logger.info("update brand:{}", brand.toString());
@@ -72,6 +79,7 @@ public class BrandController {
                         .successWithData(brandService.updateBrand(brand,cids), HttpStatus.OK));
     }
 
+    @ApiOperation(value = "品牌删除")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseResult> deleteCategoryById(@PathVariable("id")Long id) {
         logger.info("insert brand:{}", id);
@@ -81,10 +89,18 @@ public class BrandController {
     }
 
 
+    @ApiOperation(value = "根据ID查询品牌信息")
     @GetMapping("/{id}")
     public ResponseEntity<ResponseResult> getById(@PathVariable("id")Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ResponseResult
                         .successWithData(brandService.getById(id), HttpStatus.OK));
+    }
+
+    @ApiOperation(value = "根据三级分类ID查询该分类下的品牌列表")
+    @GetMapping("/list-by-cid/{cid}")
+    public ResponseEntity<ResponseResult> getBrandListByCategoryId(@PathVariable("cid")Long cid){
+        return ResponseEntity.status(200).body(ResponseResult
+                .successWithData(brandService.getBrandListByCategoryId(cid), HttpStatus.OK));
     }
 }

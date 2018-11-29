@@ -13,3 +13,10 @@ spring:
       label: master
       profile: dev
       uri: http://localhost:8888
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+
+logging:
+  level:
+    com.leyou.item.mapper: debug
