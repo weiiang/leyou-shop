@@ -1,5 +1,7 @@
 package com.leyou.pojo;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -23,9 +25,11 @@ public class Spu  implements Serializable {
     private Long cid2;
     private Long cid3;
     private Long brandId;
+
     @Column(name = "saleable")
-    private boolean saleable;
-    private boolean valid;
+    private Boolean saleable;
+    @Column(name = "valid")
+    private Boolean valid;
 
 
     private Date createTime;
@@ -41,6 +45,25 @@ public class Spu  implements Serializable {
      */
     @Transient
     private String bname;
+
+
+
+    public Boolean isSaleable() {
+        return saleable;
+    }
+
+    public void setSaleable(boolean saleable) {
+        this.saleable = saleable;
+    }
+
+    public Boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
 
 
     public Long getId() {
@@ -99,21 +122,7 @@ public class Spu  implements Serializable {
         this.brandId = brandId;
     }
 
-    public boolean getSaleable() {
-        return saleable;
-    }
 
-    public void setSaleable(boolean saleable) {
-        this.saleable = saleable;
-    }
-
-    public boolean getValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
 
     public Date getCreateTime() {
         return createTime;

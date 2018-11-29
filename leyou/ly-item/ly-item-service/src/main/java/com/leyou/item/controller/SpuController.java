@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2018/11/29 9:21
  * @Version 1.0.0
  */
-@Api(value="商品SPU控制器",tags={"商品SPU相关接口"})
 @RestController
 @RequestMapping("/spu")
 public class SpuController {
@@ -30,7 +29,7 @@ public class SpuController {
     @GetMapping("/page")
     public ResponseEntity<ResponseResult> getSpuPage(@RequestParam(value = "page", defaultValue = "1")Integer page,
                                                      @RequestParam(value = "row", defaultValue = "5")Integer row,
-                                                     @RequestParam(value = "saleable", required = false)boolean saleable,
+                                                     @RequestParam(value = "saleable", required = false)Boolean saleable,
                                                      @RequestParam(value = "key", required = false)String key){
 
         return ResponseEntity.status(200).body(ResponseResult

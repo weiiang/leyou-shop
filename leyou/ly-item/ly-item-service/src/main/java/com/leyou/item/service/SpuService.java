@@ -39,21 +39,20 @@ public class SpuService {
 
     /**
      * spu分页列表
+     *
      * @param page
      * @param row
      * @param saleable
      * @param key
      * @return
      */
-    public Object getPageList(Integer page, Integer row, boolean saleable, String key) {
+    public Object getPageList(Integer page, Integer row, Boolean saleable, String key) {
         PageHelper.startPage(page, row);
         Example example = new Example(Spu.class);
         Example.Criteria criteria = example.createCriteria();
-        if (saleable) {
-            criteria.andEqualTo("saleable", saleable);
-        }
+        criteria.andEqualTo("saleable", saleable);
         if (StringUtils.isNotBlank(key)) {
-            criteria.andLike("title", "%"+key+"%");
+            criteria.andLike("title", "%" + key + "%");
         }
         Page<Spu> spuList = (Page<Spu>) spuMapper.selectByExample(example);
         //查询品牌和分类
@@ -64,6 +63,6 @@ public class SpuService {
             spu.setCname(names);
             spu.setBname(brandMapper.selectByPrimaryKey(spu.getBrandId()).getName());
         });
-        return new PageBean<Spu>( spuList.getTotal(), spuList.getResult());
+        return new PageBean<Spu>(spuList.getTotal(), spuList.getResult());
     }
 }
