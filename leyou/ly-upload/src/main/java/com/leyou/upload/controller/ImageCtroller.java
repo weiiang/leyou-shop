@@ -3,6 +3,8 @@ package com.leyou.upload.controller;
 import com.leyou.common.enums.ExceptionEnum;
 import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
+import com.leyou.upload.entity.FileInfo;
+import com.leyou.upload.entity.req.FileInfoReq;
 import com.leyou.upload.service.ImageUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,19 +25,19 @@ import java.io.IOException;
  * @Version 1.0.0
  */
 @RestController
-@RequestMapping("/image")
+@RequestMapping("/image-upload")
 public class ImageCtroller {
 
     @Autowired
     private ImageUploadService imageUploadService;
 
     @PostMapping("/upload")
-    public ResponseEntity<ResponseResult> uploadImage(@RequestParam MultipartFile file) throws IOException {
+    public ResponseEntity<ResponseResult> uploadImage(@RequestParam(value = "file", required = true) MultipartFile file, FileInfoReq fileInfoReq) throws IOException {
         if (file == null){
             throw new CustomGlobalRuntimeException(ExceptionEnum.BADREQUEST_UPLOAD_IMAGE_CANNOT_BE_NULL);
         }
         return ResponseEntity.status(200)
                 .body(ResponseResult.successWithDataAndMsg(imageUploadService
-                        .upload(file),"上传成功!", HttpStatus.OK));
+                        .upload(file, fileInfoReq),"上传成功!", HttpStatus.OK));
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @ClassName UploadService
@@ -12,9 +14,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @Date 2018/11/6 14:55
  * @Version 1.0.0
  */
-
+@MapperScan("com.leyou")
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableSwagger2
 public class UploadService {
     public static void main(String[] args) {
 

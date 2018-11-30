@@ -1,4 +1,4 @@
-package com.leyou.upload.controller;
+package com.leyou.upload.advice;
 
 import com.leyou.common.exceptions.CustomGlobalRuntimeException;
 import com.leyou.common.vo.ResponseResult;
