@@ -39,4 +39,11 @@ public class SpecParamService {
         deleteBatch(ids);
         return  addBatch(specParamList);
     }
+
+    public Object getSpecParamListByByParam(Long cid, Boolean searching) {
+        SpecParam specParam = new SpecParam();
+        specParam.setCid(cid);
+        specParam.setSearching(searching);
+        return specParamMapper.select(specParam);
+    }
 }
