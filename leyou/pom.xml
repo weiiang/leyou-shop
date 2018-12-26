@@ -13,6 +13,7 @@
         <module>ly-registry</module>
         <module>ly-upload</module>
         <module>ly-config-center</module>
+        <module>ly-search</module>
     </modules>
     <packaging>pom</packaging>
 
