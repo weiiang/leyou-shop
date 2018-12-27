@@ -27,7 +27,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.leyou.item.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.leyou.search.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -35,8 +35,8 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("乐优商城")
-                .description("乐优商城-商品微服务API文档")
-                .termsOfServiceUrl("http://localhost:8081/swagger-ui.html")
+                .description("乐优商城-搜索微服务API文档")
+                .termsOfServiceUrl("http://localhost:8093/swagger-ui.html")
                 .version("1.0")
                 .build();
     }

@@ -20,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableDiscoveryClient
 public class LySearchService {
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication();
+        SpringApplication application = new SpringApplication(LySearchService.class);
         application.setBannerMode(Banner.Mode.OFF);
         application.run(args);
     }

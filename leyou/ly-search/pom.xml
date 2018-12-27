@@ -47,5 +47,28 @@
             <version>${swagger2.version}</version>
         </dependency>
         <!-- API文档 -->
+
+
+        <!--商品服务接口-->
+        <dependency>
+            <groupId>com.leyou.service</groupId>
+            <artifactId>ly-item-interface</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+     <!--   <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.0.6.RELEASE</version>
+        </dependency>
+-->
+        <dependency>
+            <groupId>com.leyou.common</groupId>
+            <artifactId>ly-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
+
+
 </project>
