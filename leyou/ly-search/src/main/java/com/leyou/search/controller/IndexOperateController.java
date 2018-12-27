@@ -13,4 +13,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/index")
 public class IndexOperateController {
+
 }

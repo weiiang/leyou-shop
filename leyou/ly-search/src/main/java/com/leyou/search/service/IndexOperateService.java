@@ -1,5 +1,7 @@
 package com.leyou.search.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,4 +14,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class IndexOperateService {
 
+    @Autowired
+    private ElasticsearchTemplate elasticsearchTemplate;
+
+    /**
+     * @param cl 索引库映射类字节码
+     * @return
+     */
+    public Object addIndex(Class cl){
+        boolean flag = false;
+        elasticsearchTemplate.createIndex(cl);
+        flag = true;
+        return flag;
+    }
 }
