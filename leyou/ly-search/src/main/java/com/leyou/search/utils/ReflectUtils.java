@@ -1,11 +1,13 @@
 package com.leyou.search.utils;
 
+import com.leyou.search.vo.ClassFileVO;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,39 +18,43 @@ import java.util.List;
  * @Version 1.0.0
  */
 public class ReflectUtils {
+    /**
+     * 参数： 包名/类名
+     * 列表：
+     * 一级：实体类信息  操作：已创建索引=》删除索引     未创建索引=>创建索引
+     * 二级：每个实体类的字段信息以及上面的注解信息
+     */
 
     private Logger logger = LoggerFactory.getLogger(ReflectUtils.class);
-    private static String packageName = "com.leyou.search.pojo";
+    private  String packageName = "com.leyou.search.pojo";
 
     public static void main(String[] args) {
-
         ReflectUtils reflectUtils = new ReflectUtils();
         String totalPath = reflectUtils.resovlePackagePath("com.leyou");
         System.out.println(totalPath);
-
         reflectUtils.parseClassName(totalPath, "com.leyou").forEach(System.out::println);
     }
 
     /**
-     *
-     * @param packagePath  字节码+包名(参数)的绝对路径
-     * @param webPackage    包名(参数)
+     * @param packagePath 字节码+包名(参数)的绝对路径
+     * @param webPackage  包名(参数)
      * @return
      */
-    public List<String> parseClassName(String packagePath, String webPackage) {
-        List<String> array = new ArrayList<>();
+    public List<ClassFileVO> parseClassName(String packagePath, String webPackage) {
+        //调用一次产生一个list存放包名列表，避免在全局变量引发逐次增加重复数据的情况
+        List<ClassFileVO> array = new ArrayList<>();
         File root = new File(packagePath);
         resolveFile(root, webPackage, array);
         return array;
     }
 
     /**
-     * @param root 字节码+包名(参数)的绝对路径=>File形式
+     * @param root       字节码+包名(参数)的绝对路径=>File形式
      * @param webPackage 参数(com.leyou)
-     * @param classNames   存放返回值的变量
+     * @param classNames 存放返回值的变量
      */
-    private void resolveFile(File root, String webPackage, List<String> classNames) {
-        if (!root.exists()){
+    private void resolveFile(File root, String webPackage, List<ClassFileVO> classNames) {
+        if (!root.exists()) {
             logger.error("包含包名的字节码的绝对路径不存在!");
             return;
         }
@@ -67,7 +73,10 @@ public class ReflectUtils {
                     if (fileName.endsWith(".class")) {
                         String name = fileName.replace(".class", "");
                         String className = webPackage + "." + name;
-                        classNames.add(className);
+                        long length = child.length();
+                        long time = child.lastModified();
+                        ClassFileVO vo = new ClassFileVO(new Date(time), length, child.getName().replaceAll(".class", ""), className, child.getAbsolutePath());
+                        classNames.add(vo);
                     }
                 }
             }
@@ -76,10 +85,14 @@ public class ReflectUtils {
 
     /**
      * 返回字节码的绝对路径
+     *
      * @param webPackage 加载的包名成
      * @return
      */
     public String resovlePackagePath(String webPackage) {
+        if (!StringUtils.isNotBlank(webPackage)){
+            webPackage = this.packageName;
+        }
         // 扫码所有的包并把其放入到访问关系和方法放入到内存中
         File f = new File(getClass().getResource("/").getPath());
         //得到类的绝对路径
@@ -95,8 +108,6 @@ public class ReflectUtils {
         totalPath = totalPath + "\\" + packagePath;
         return totalPath;
     }
-
-
 
 
 }
