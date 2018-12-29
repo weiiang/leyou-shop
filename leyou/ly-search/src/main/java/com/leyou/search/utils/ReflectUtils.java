@@ -28,11 +28,13 @@ public class ReflectUtils {
     private Logger logger = LoggerFactory.getLogger(ReflectUtils.class);
     private  String packageName = "com.leyou.search.pojo";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         ReflectUtils reflectUtils = new ReflectUtils();
         String totalPath = reflectUtils.resovlePackagePath("com.leyou");
         System.out.println(totalPath);
-        reflectUtils.parseClassName(totalPath, "com.leyou").forEach(System.out::println);
+//        reflectUtils.parseClassName(totalPath, "com.leyou").forEach(System.out::println);
+
+        ClassUtils.getClassDetails(reflectUtils.parseClassName(totalPath, "com.leyou"));
     }
 
     /**
