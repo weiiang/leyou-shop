@@ -57,7 +57,7 @@ public class Goods implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Long createTime;
     /**
      * 价格
      */
@@ -130,11 +130,11 @@ public class Goods implements Serializable {
         this.cid3 = cid3;
     }
 
-    public Date getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 

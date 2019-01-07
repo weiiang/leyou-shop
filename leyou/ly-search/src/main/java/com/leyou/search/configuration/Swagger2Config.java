@@ -2,6 +2,7 @@ package com.leyou.search.configuration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,6 +20,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  * @Version 1.0.0
  */
 @Configuration
+@ConditionalOnProperty(prefix = "swagger", value = {"enable"}, havingValue = "true")
 public class Swagger2Config {
     private Logger logger = LoggerFactory.getLogger(Swagger2Config.class);
     @Bean
@@ -27,7 +29,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.leyou.search.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.leyou.search"))
                 .paths(PathSelectors.any())
                 .build();
     }

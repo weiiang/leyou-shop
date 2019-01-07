@@ -3,6 +3,7 @@ package com.leyou.item.controller;
 import com.leyou.common.vo.ResponseResult;
 import com.leyou.item.service.SpuService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,7 @@ public class SpuController {
     private SpuService spuService;
 
     @GetMapping("/page")
+    @ApiOperation("SPU分页列表")
     public ResponseEntity<ResponseResult> getSpuPage(@RequestParam(value = "page", defaultValue = "1")Integer page,
                                                      @RequestParam(value = "row", defaultValue = "5")Integer row,
                                                      @RequestParam(value = "saleable", required = false)Boolean saleable,
@@ -34,6 +36,13 @@ public class SpuController {
 
         return ResponseEntity.status(200).body(ResponseResult
                 .successWithData(spuService.getPageList(page,row,saleable,key), HttpStatus.OK));
+    }
+
+    @GetMapping("/list-all")
+    @ApiOperation("SPU全部列表")
+    public ResponseEntity<ResponseResult> listAll(){
+        return ResponseEntity.status(200).body(ResponseResult
+                .successWithData(spuService.listAll(), HttpStatus.OK));
     }
 
 }

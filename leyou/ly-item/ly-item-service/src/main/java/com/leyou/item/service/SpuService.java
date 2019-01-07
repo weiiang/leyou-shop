@@ -65,4 +65,12 @@ public class SpuService {
         });
         return new PageBean<Spu>(spuList.getTotal(), spuList.getResult());
     }
+
+    /**
+     * 查询全部
+     * @return
+     */
+    public Object listAll() {
+        return spuMapper.selectAll();
+    }
 }

@@ -16,6 +16,15 @@ import java.util.List;
 @ApiIgnore
 public interface ItemApi {
 
+
+    /**
+     * 根据品牌ID查询品牌
+     * @param id
+     * @return
+     */
+    @GetMapping("/brand")
+    ResponseEntity<ResponseResult> selectBrandById(@RequestParam("id") Long id);
+
     /**
      * 根据品牌分类ID列表查询品牌列表
      *
@@ -48,6 +57,29 @@ public interface ItemApi {
                                               @RequestParam(value = "row", defaultValue = "5") Integer row,
                                               @RequestParam(value = "saleable", required = false) Boolean saleable,
                                               @RequestParam(value = "key", required = false) String key);
+
+    /**
+     * SPU列表
+     * @return
+     */
+    @GetMapping("/spu/list-all")
+    ResponseEntity<ResponseResult> findAllSpu();
+
+    /**
+     * 根据SPUID查询Sku列表
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/sku/list-by-spuId")
+    ResponseEntity<ResponseResult> findSkuListBySpuId(@RequestParam("spuId")Long spuId);
+
+    /**
+     * 根据SPUID查询SPU详情
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/spu-detail")
+    ResponseEntity<ResponseResult> findSpuDetailsBySpuId(@RequestParam("spuId")Long spuId);
 
 
 }
