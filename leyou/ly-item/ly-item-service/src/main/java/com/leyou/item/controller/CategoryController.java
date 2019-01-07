@@ -23,7 +23,6 @@ import java.util.List;
  * @Date 2018/10/31 9:20
  * @Version 1.0.0
  */
-@Api(value="商品分类控制器",tags={"商品分类相关接口"})
 @RestController
 @RequestMapping("/category")
 public class CategoryController {

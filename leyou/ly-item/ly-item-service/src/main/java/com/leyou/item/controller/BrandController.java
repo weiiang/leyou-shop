@@ -25,7 +25,6 @@ import java.util.List;
  * @Date 2018/11/1 17:23
  * @Version 1.0.0
  */
-@Api(value="品牌控制器",tags={"品牌相关接口"})
 @RestController
 @RequestMapping("/brand")
 public class BrandController {

@@ -18,6 +18,7 @@ public interface ItemApi {
 
     /**
      * 根据品牌分类ID列表查询品牌列表
+     *
      * @param ids
      * @return
      */
@@ -26,10 +27,27 @@ public interface ItemApi {
 
     /**
      * 根据分类ID列表查询分类列表
+     *
      * @param ids
      * @return
      */
     @GetMapping("/category/list-by-ids")
     ResponseEntity<ResponseResult> selectCategoryListByIdList(@RequestParam("ids[]") List<Long> ids);
+
+    /**
+     * spu分页信息
+     *
+     * @param page
+     * @param row
+     * @param saleable
+     * @param key
+     * @return
+     */
+    @GetMapping("/spu/page")
+    ResponseEntity<ResponseResult> getSpuPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                              @RequestParam(value = "row", defaultValue = "5") Integer row,
+                                              @RequestParam(value = "saleable", required = false) Boolean saleable,
+                                              @RequestParam(value = "key", required = false) String key);
+
 
 }

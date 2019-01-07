@@ -26,7 +26,7 @@ public class Sku implements Serializable {
     /**
      * SpuID
      */
-    private Long supId;
+    private Long spuId;
     /**
      * 标题
      */
@@ -70,11 +70,11 @@ public class Sku implements Serializable {
     }
 
     public Long getSupId() {
-        return supId;
+        return spuId;
     }
 
     public void setSupId(Long supId) {
-        this.supId = supId;
+        this.spuId = supId;
     }
 
     public String getTitle() {
@@ -139,5 +139,9 @@ public class Sku implements Serializable {
 
     public void setLastUpdateTime(Date lastUpdateTime) {
         LastUpdateTime = lastUpdateTime;
+    }
+
+    public void setSpuId(Long spuId) {
+        this.spuId = spuId;
     }
 }

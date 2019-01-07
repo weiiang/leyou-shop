@@ -1,5 +1,8 @@
 package com.leyou.item.service;
 
+import com.leyou.item.mapper.SpuDetailMapper;
+import com.leyou.pojo.SpuDetail;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,4 +14,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SpuDetailService {
+
+    @Autowired
+    private SpuDetailMapper spuDetailMapper;
+
+    public Object getDetailBySpuId(Long spuId) {
+        SpuDetail spuDetail = new SpuDetail();
+        spuDetail.setSpuId(spuId);
+        return spuDetailMapper.selectByPrimaryKey(spuDetail);
+    }
 }

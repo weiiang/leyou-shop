@@ -1,5 +1,8 @@
 package com.leyou.item.service;
 
+import com.leyou.item.mapper.SkuMapper;
+import com.leyou.pojo.Sku;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,4 +14,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SkuService {
+
+    @Autowired
+    private SkuMapper skuMapper;
+
+    public Object findListBySpuId(Long spuId) {
+        Sku sku = new Sku();
+        sku.setSpuId(spuId);
+        return skuMapper.select(sku);
+    }
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(value="规格参数控制器")
 @RequestMapping("/spec-param")
 @RestController
 public class SpecParamController {
