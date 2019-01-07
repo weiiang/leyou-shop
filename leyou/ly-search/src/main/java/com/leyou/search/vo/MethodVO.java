@@ -1,5 +1,7 @@
 package com.leyou.search.vo;
 
+import io.swagger.annotations.ApiModel;
+
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.Map;
 /**
  * @author admin
  */
+@ApiModel
 public class MethodVO {
     private String methodName;
     private String returnType;

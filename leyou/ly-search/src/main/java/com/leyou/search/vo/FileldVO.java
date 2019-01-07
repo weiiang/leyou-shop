@@ -1,5 +1,7 @@
 package com.leyou.search.vo;
 
+import io.swagger.annotations.ApiModel;
+
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 /**
  * @author admin
  */
+@ApiModel
 public class FileldVO {
 
     private String filedName;

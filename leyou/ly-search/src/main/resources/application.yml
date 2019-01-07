@@ -6,7 +6,7 @@ spring:
   data:
     elasticsearch:
       cluster-name: elasticsearch
-      cluster-nodes: 192.168.56.101:9300
+      cluster-nodes: 119.23.220.195:9300
 eureka:
   client:
     service-url:

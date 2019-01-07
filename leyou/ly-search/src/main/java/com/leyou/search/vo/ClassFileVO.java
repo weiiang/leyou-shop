@@ -1,6 +1,8 @@
 package com.leyou.search.vo;
 
 
+import io.swagger.annotations.ApiModel;
+
 import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.List;
 /**
  * @author admin
  */
+@ApiModel
 public class ClassFileVO implements Serializable {
 
     public ClassFileVO() {}

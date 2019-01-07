@@ -86,6 +86,19 @@ public class ResponseResult {
     }
 
     /**
+     * 操作成功调用的方法
+     * 传入数据
+     * @return
+     */
+    public static ResponseResult successWithMsg(String msg,HttpStatus httpStatus) {
+        ResponseResult responseResult = new ResponseResult();
+        responseResult.timstamp = System.currentTimeMillis();
+        responseResult.msg = msg;
+        responseResult.code = httpStatus.value();
+        return responseResult;
+    }
+
+    /**
      * 操作成功调用
      * 无返回数据
      * @param httpStatus
