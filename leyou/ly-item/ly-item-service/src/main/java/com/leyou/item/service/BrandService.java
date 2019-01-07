@@ -97,7 +97,18 @@ public class BrandService {
         return returnMap;
     }
 
+    /**
+     * 根据分类ID查询品牌列表
+     * @param cid
+     * @return
+     */
     public Object getBrandListByCategoryId(Long cid) {
         return brandMapper.getBrandByCid(cid);
     }
+
+    public List<Brand> getBrandListByIdList(List<Long> ids){
+        List<Brand> lsit = brandMapper.selectByIdList(ids);
+        return lsit;
+    }
+
 }

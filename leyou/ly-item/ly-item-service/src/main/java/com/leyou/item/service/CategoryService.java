@@ -124,4 +124,9 @@ public class CategoryService {
         List<Category> categories = categotyMapper.selectByIdList(cids);
         return categories;
     }
+
+    public Object getCategoryListByIdList(List<Long> ids) {
+        List<Category> categories = categotyMapper.selectByIdList(ids);
+        return categories;
+    }
 }

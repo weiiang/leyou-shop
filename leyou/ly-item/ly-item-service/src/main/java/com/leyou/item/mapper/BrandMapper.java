@@ -1,5 +1,6 @@
 package com.leyou.item.mapper;
 
+import com.leyou.common.base.BaseMapper;
 import com.leyou.pojo.Brand;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * 商品品牌Mapper接口
  */
-public interface BrandMapper extends Mapper<Brand> {
+public interface BrandMapper extends BaseMapper<Brand> {
 
     /**
      * 新增商品分类和品牌中间表数据

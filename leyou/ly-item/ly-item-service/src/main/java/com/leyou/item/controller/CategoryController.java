@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @ClassName CategoryController
  * @Description 商品分类控制类
@@ -71,5 +73,10 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(ResponseResult
                         .successWithData(categoryService.deleteCategoryById(id), HttpStatus.OK));
+    }
+
+    @GetMapping("list-by-ids")
+    public ResponseEntity<ResponseResult> getCategoryListByIdList(@RequestParam("ids[]")List<Long> ids){
+        return ResponseEntity.status(200).body(ResponseResult.successWithData(categoryService.getCategoryListByIdList(ids), HttpStatus.OK));
     }
 }

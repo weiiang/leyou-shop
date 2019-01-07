@@ -103,4 +103,14 @@ public class BrandController {
         return ResponseEntity.status(200).body(ResponseResult
                 .successWithData(brandService.getBrandListByCategoryId(cid), HttpStatus.OK));
     }
+
+    @ApiOperation(value = "根据id字符串查询品牌分类列表")
+    @GetMapping("/list-by-ids")
+    public ResponseEntity<ResponseResult> getBrandListByIdList(@RequestParam(value = "ids[]", required = true)List<Long> ids){
+        ResponseEntity responseEntity = ResponseEntity.status(200).body(ResponseResult
+                .successWithData(brandService.getBrandListByIdList(ids), HttpStatus.OK));
+        return responseEntity;
+    }
+
+
 }
