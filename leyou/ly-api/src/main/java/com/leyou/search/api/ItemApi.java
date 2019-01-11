@@ -4,6 +4,7 @@ import com.leyou.common.vo.ResponseResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -80,6 +81,15 @@ public interface ItemApi {
      */
     @GetMapping("/spu-detail")
     ResponseEntity<ResponseResult> findSpuDetailsBySpuId(@RequestParam("spuId")Long spuId);
+
+    /**
+     * 根据分类ID查询该分类下面可以用来搜索的规格参数
+     * @param cid
+     * @param searching
+     * @return
+     */
+    @RequestMapping("/spec-param/list-by-param")
+    ResponseEntity<ResponseResult> findSpecByParam(@RequestParam("cid")Long cid, @RequestParam("searching")Boolean searching);
 
 
 }

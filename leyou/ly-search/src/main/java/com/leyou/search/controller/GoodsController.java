@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class GoodsController {
 
     @PostMapping
     @ApiOperation("将数据库的商品数据同步到索引库")
-    public ResponseEntity<ResponseResult> syncDataToIndex(){
+    public ResponseEntity<ResponseResult> syncDataToIndex() throws IOException {
         return ResponseEntity.status(200).body(goodsService.syncDataToIndex());
     }
 
