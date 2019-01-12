@@ -23,7 +23,7 @@ import java.util.Map;
  * @Version 1.0.0
  */
 @RestController
-@RequestMapping("/goos-search")
+@RequestMapping("/goods")
 public class GoodsController {
 
     @Autowired

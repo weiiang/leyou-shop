@@ -15,6 +15,7 @@
         <module>ly-config-center</module>
         <module>ly-search</module>
         <module>ly-api</module>
+        <module>ly-page</module>
     </modules>
     <packaging>pom</packaging>
 

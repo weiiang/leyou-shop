@@ -38,6 +38,11 @@ public class GoodsService {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * 同步索引库
+     * @return
+     * @throws IOException
+     */
     public ResponseResult syncDataToIndex() throws IOException {
         long start= System.currentTimeMillis();
         logger.info("开始查询封装数据:"+start);
@@ -66,8 +71,13 @@ public class GoodsService {
                 }
                 });
             }};
+            //分类名称
             abcName = StringUtils.join(nameList, "/");
-            goods.setAll(abcName);
+            String title = (String) spu.get("title");
+            Map responseResult1 = (Map) itemApi.selectBrandById(((Integer) spu.get("brandId")).longValue()).getBody().getData();
+            Map brand = (Map) responseResult1.get("brand");
+            String name = (String) brand.get("name");
+            goods.setAll(abcName+" "+ brand+" "+ title);
             //价格数组
             List<Map> skuList = (List<Map>) itemApi.findSkuListBySpuId(((Integer) spu.get("id")).longValue()).getBody().getData();
             List<Long> prices = new ArrayList<Long>(){{
@@ -128,6 +138,12 @@ public class GoodsService {
         return ResponseResult.successWithData(goodsList, HttpStatus.OK);
     }
 
+    /**
+     * 将商品的价格改为价格所在范围,方便过滤
+     * @param value
+     * @param p
+     * @return
+     */
     private String chooseSegment(String value, Map p) {
         double val = Double.parseDouble(value);
         String result = "其它";

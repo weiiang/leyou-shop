@@ -1,28 +1,24 @@
-package com.leyou.upload;
+package com.leyou.search;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-import tk.mybatis.spring.annotation.MapperScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * @ClassName UploadService
- * @Description 上传服务启动类
+ * @ClassName PageWebApplication
+ * @Description TODO
  * @Author wq
- * @Date 2018/11/6 14:55
+ * @Date 2019/1/12 10:02
  * @Version 1.0.0
  */
-@MapperScan("com.leyou.upload.mapper")
 @SpringBootApplication
+@EnableFeignClients
 @EnableDiscoveryClient
-@EnableSwagger2
-public class UploadService {
+public class PageWebApplication {
     public static void main(String[] args) {
-
-        SpringApplication app = new SpringApplication(UploadService.class);
-        //不打印springboot标志
+        SpringApplication app = new SpringApplication(PageWebApplication.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run(args);
     }

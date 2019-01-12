@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://119.23.220.195:3306/wq_common
     username: root
-    password: Wei@19941112
+    password: root
   cloud:
     config:
       label: master
