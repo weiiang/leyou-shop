@@ -4,6 +4,8 @@ public enum ExceptionEnum {
 
     //用户
     USER_NOT_EXIST_EXCEPTION(404, "用户不存在"),
+    USERNAME_OR_PASSWORD_CANNOT_BE_NULL(403, "账号和密码不能为空"),
+
 
     BADREQUEST_NAME_CANNOT_BE_NULL(400,"名称不能为空!"),
     BADREQUEST_AGE_CANNOT_BE_NULL(400, "年龄不能为空!"),

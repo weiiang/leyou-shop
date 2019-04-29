@@ -1,5 +1,10 @@
 server:
   port: 8083
+#  ssl:
+#    key-store:  classpath:key/xcnew.keystore
+#    key-alias:  xckey
+#    key-password: xuecheng
+#    key-store-password: xuechengkeystore
 
 #应用名称、服务名称
 spring:
@@ -34,7 +39,7 @@ eureka:
 
 encrypt:
   key-store:
-    location: classpath:/xcnew.keystore
-    secret: xuechengkeystore
+    location: classpath:xxcc.keystore
+    secret: xuechengkey
     alias: xckey
-    password: xuecheng
+    password: xuechengkey

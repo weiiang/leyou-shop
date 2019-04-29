@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version 1.0.0
  */
 @RestController
-@RequestMapping("/")
 public class AuthController {
 
     @Autowired

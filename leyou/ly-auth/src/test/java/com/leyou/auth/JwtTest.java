@@ -25,7 +25,7 @@ public class JwtTest {
     public static void main(String[] args) {
 
         //证书文件
-        String key_location = "xcnew.keystore";
+        String key_location = "key/xcnew.keystore";
         // 密钥库密码
         String keystore_password = "xuechengkeystore";
         ClassPathResource resource = new ClassPathResource(key_location);
